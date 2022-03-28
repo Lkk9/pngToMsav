@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PNG to MSAV</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Mohave:wght@400;600&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        font-family: 'Mohave', sans-serif;
+        font-weight: 400;
+      }
+      a {
+        text-decoration: none;
+      }
+      body {
+        font-size: 1.5em;
+      }
+      #wrapper {
+        user-select: none;
+        min-height: 100vh;
+        display: grid;
+        grid-gap: 50px;
+        grid-template-rows: 80px auto auto auto 1fr;
+        grid-template-columns: 25vw auto 25vw;
+      }
+
+      #wrapper > * {
+        box-shadow: 0px 5px 20px rgba(0,0,0,.25);
+      }
+
+      footer {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: .9em;
+        padding: 20px 0;
+      }
+      footer span {
+        margin: 5px 0;
+        opacity: .5;
+      }
+      footer span:first-child {
+        color: #5865F2;
+        opacity: 1;
+      }
+
+      .command {
+        padding: 10px 20px;
+        margin: 10px 0;
+        background: rgba(0,0,0,.125);
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+    </div>
+    <footer><span>Made by: L' kk#6790</span><span style="user-select: none;">Copyright (c) 2022 Copyright Holder All Rights Reserved.</span></footer>
+    <script src="prep.js" charset="utf-8"></script>
+    <script src="classes.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
