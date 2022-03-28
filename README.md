@@ -1,2 +1,2 @@
 # pngToMsav
-converts png
+convert png to another png
