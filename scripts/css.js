@@ -100,6 +100,7 @@ cssStyle.innerHTML = `
   .footer span:first-child {
     color: #5865F2;
     opacity: 1;
+    user-select: text;
   }
 `
 document.head.appendChild(cssStyle)
