@@ -93,26 +93,7 @@ function draw() {
 }
 
 function makeImg() {
-  /*
-  console.log('loading...')
-  for (let i = 0; i < srcImg.height; i++) {
-    console.log('loaded layers: ', ''+(i+1), '/ ' + srcImg.height)
-    for (let j = 0; j < srcImg.width; j++) {
-      const curPixel = srcImg.get(j, i)
-      let isLoaded = true
-      for (let k = 0; k < allColors.length; k++) {
-        if (allColors[k].join(' ') == curPixel.join(' ')) isLoaded = false
-      }
-      if (isLoaded) allColors.push(curPixel)
-    }
-  }
-  console.log('loaded')
-  console.log((() => {
-    return `{
-      ${allColors.map(x => `\t\'name\': [${x.join(', ')}],`).join('\n')}
-    }`
-  })());
-  */
+
   console.log('start converting...')
 
   newImg = createImage(myImg.width, myImg.height)

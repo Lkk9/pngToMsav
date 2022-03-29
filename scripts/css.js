@@ -13,13 +13,15 @@ cssStyle.innerHTML = `
     background: ${color.regular};
     align-items: center;
     overflow-y: hidden;
+    border-radius: 0;
   }
 
   .head {
     display: flex;
     font-size: 2.5em;
     min-height: 100%;
-    width: 35%;
+    width: auto;
+    padding: 0 10%;
     font-weight: 600;
     justify-content: center;
     background: ${color.header};
@@ -34,7 +36,6 @@ cssStyle.innerHTML = `
     flex-direction: column;
     justify-content: center;
     background: ${color.regular};
-    border-radius: 8px;
     padding: 30px;
     align-items: center;
     width: 100%;
@@ -47,7 +48,6 @@ cssStyle.innerHTML = `
     background: ${color.main};
     color: ${color.textDark};
     padding: 30px 40px;
-    border-radius: 8px;
     height: auto;
     display: flex;
     justify-content: center;
@@ -60,7 +60,6 @@ cssStyle.innerHTML = `
     grid-column: 2/5;
     background: ${color.regular};
     color: ${color.textDark};
-    border-radius: 8px;
     flex-direction: column;
   }
 
@@ -151,6 +150,7 @@ cssStyle.innerHTML = `
     padding: 100px 30px 20px 30px;
     color: ${color.textDark};
     user-select: text;
+    border-radius: 0;
   }
 
   .loadContent {
@@ -160,7 +160,6 @@ cssStyle.innerHTML = `
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
   }
 
   .saveContent {
@@ -170,7 +169,6 @@ cssStyle.innerHTML = `
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
   }
 
   .userBtn {
@@ -246,7 +244,6 @@ cssStyle.innerHTML = `
     flex-direction: column;
     font-size: .9em;
     padding: 20px 0;
-    border-radius: 8px;
     grid-row: 6/7;
     grid-column: 2/5;
   }
@@ -259,6 +256,71 @@ cssStyle.innerHTML = `
     color: #5865F2;
     opacity: 1;
     user-select: text;
+  }
+
+  @media only screen and (max-width: 800px) {
+    #wrapper {
+      grid-template-rows: 80px auto auto auto auto auto auto;
+      grid-template-columns: auto auto;
+      grid-gap: 0;
+    }
+
+    #wrapper > * {
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .headContainer {
+      grid-row: 1/2;
+      grid-column: 1/3;
+    }
+
+    .sideBarInfo {
+      grid-row: 2/3;
+      grid-column: 1/3;
+      height: auto;
+      padding: 20px 30px;
+    }
+
+    .main {
+      grid-row: 3/4;
+      grid-column: 1/3;
+    }
+
+    .userBtn {
+      margin: 40px 20px;
+    }
+
+    .saveContent {
+      grid-row: 4/5;
+      grid-column: 1/2;
+      box-shadow: none;
+    }
+
+    .loadContent {
+      grid-row: 4/5;
+      grid-column: 2/3;
+      box-shadow: none;
+    }
+
+    .info {
+      grid-row: 5/6;
+      grid-column: 1/3;
+    }
+
+    .options {
+      padding: 15px 0px 30px 0px;
+    }
+
+    .settings {
+      grid-row: 6/7;
+      grid-column: 1/3;
+    }
+
+    .footer {
+      grid-row: 7/8;
+      grid-column: 1/3;
+    }
   }
 `
 document.head.appendChild(cssStyle)

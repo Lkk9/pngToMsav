@@ -99,19 +99,12 @@ settings.add = optionsCustom
 const sideBarInfo = new StyledElement('sideBarInfo')
 
 sideBarInfo.addGroup('help', 'Load your image, press convert button and wait for process. You can apply some options below.')//'After you download this app, name the image you want to convert as "myImg.png" and put it in your app folder. <br/>Click the button and wait for the process.')
-sideBarInfo.addGroup('how to save', 'In new window after you press save button <div class="command">1. right-click on image</div><div class="command">2. save image as</div><div class="command">3. save</div>')
+sideBarInfo.addGroup('how to save', 'In new window after you press save button <div class="command">1. right-click on image (or hold)</div><div class="command">2. save image as</div><div class="command">3. save</div>')
 sideBarInfo.addGroup('import in game', 'To make an image a mindustry map go to <div class="command">1. editor</div><div class="command">2. new map</div><div class="command">3. menu (in map editor)</div><div class="command">4. import</div><div class="command">5. import image file</div><div class="command">6. and open converted image</div>')
 
 // footer
 const footer = new StyledElement('footer')
 footer.addHtml = `<span>Made by: L' kk#6790</span><span style="user-select: none;">Copyright (c) 2022 Copyright Holder All Rights Reserved.</span>`
-
-/*
-var canvas = document.getElementById("defaultCanvas0");
-var dataURL = canvas.toDataURL("image/png");
-var newTab = window.open('about:blank','image from canvas');
-newTab.document.write("<img src='" + dataURL + "' alt='from canvas'/>");
-*/
 
 // dynamic stuff
 setInterval(() => {
