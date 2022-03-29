@@ -28,6 +28,7 @@ cssStyle.innerHTML = `
   #loader-label {
     background: ${color.regular};
     padding: 20px 20%;
+    margin: 20;
     font-weight: 600;
     font-size: 1.1em;
     cursor: pointer;
