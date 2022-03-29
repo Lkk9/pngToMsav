@@ -3,12 +3,111 @@ cssStyle.innerHTML = `
     progress::-moz-progress-bar {
     background: ${color.textLight};
   }
-  .side {
-    background: ${color.background};
-    padding: 100px 30px 20px 30px;
-    color: ${color.textDark};
-    user-select: text;
+
+  .headContainer {
+    grid-row: 1/2;
+    grid-column: 1/6;
+    display: flex;
+    z-index: 1;
+    justify-content: center;
+    background: ${color.regular};
+    align-items: center;
+    overflow-y: hidden;
   }
+
+  .head {
+    display: flex;
+    font-size: 2.5em;
+    min-height: 100%;
+    width: 35%;
+    font-weight: 600;
+    justify-content: center;
+    background: ${color.header};
+    align-items: center;
+    color: ${color.textLight};
+  }
+
+  .main {
+    grid-row: 2/3;
+    grid-column: 2/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: ${color.regular};
+    border-radius: 8px;
+    padding: 30px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .info {
+    grid-row: 3/4;
+    grid-column: 3/4;
+    background: ${color.main};
+    color: ${color.textDark};
+    padding: 30px 40px;
+    border-radius: 8px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .settings {
+    grid-row: 4/5;
+    grid-column: 2/5;
+    background: ${color.regular};
+    color: ${color.textDark};
+    border-radius: 8px;
+    flex-direction: column;
+  }
+
+  .options {
+    background: ${color.main};
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 40px;
+    flex-direction: column;
+  }
+
+  .optionsRadios {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+  }
+
+  .optionsCustom {
+    display: none;
+    padding: 0;
+    background: ${color.background};
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .btn {
+    background: ${color.textLight}cc;
+    width: 120px;
+    height: 60px;
+    font-weight: 600;
+    font-size: 1em;
+    color: ${color.textDark}cc;
+    margin-top: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+  }
+  .btn:hover {
+    color: ${color.textDark};
+    background: ${color.textLight};
+    box-shadow: 0px 5px 20px rgba(0,0,0,.25);
+  }
+
   .topic {
     display: inline-block;
     font-weight: 600;
@@ -19,22 +118,78 @@ cssStyle.innerHTML = `
     padding: 1px 20px;
     text-transform: uppercase;
   }
+
+  .imgSize {
+    color: ${color.textDark};
+  }
+
+  .img {
+    display: none;
+    margin-top: 20px;
+    justify-content: center;
+    border-radius: 8px;
+    border: 2px solid ${color.textDark};
+  }
+
+  .warningSize {
+    background: transparent;
+    display: none;
+    padding: 20px;
+    color: rgba(255,0,0,.5);
+  }
+
   .group a {
     color: ${color.link};
     text-decoration-line: underline;
     text-decoration-style: dashed;
   }
 
-  #loader-label {
+  .sideBarInfo {
+    grid-row: 1/8;
+    grid-column: 5/6;
+    background: ${color.background};
+    padding: 100px 30px 20px 30px;
+    color: ${color.textDark};
+    user-select: text;
+  }
+
+  .loadContent {
+    grid-row: 3/4;
+    grid-column: 4/5;
+    background: ${color.regular};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  .saveContent {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    background: ${color.regular};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  .userBtn {
     background: ${color.regular};
     padding: 20px 20%;
-    margin: 20;
+    margin: 20px;
     font-weight: 600;
     font-size: 1.1em;
     cursor: pointer;
     color: ${color.textDark};
-    border: dashed 5px ${color.main};
     border-radius: 10px;
+  }
+
+  #saver-label {
+    border: solid 5px ${color.main};
+  }
+
+  #loader-label {
+    border: dashed 5px ${color.main};
   }
 
   .progressStyles {
@@ -92,6 +247,8 @@ cssStyle.innerHTML = `
     font-size: .9em;
     padding: 20px 0;
     border-radius: 8px;
+    grid-row: 6/7;
+    grid-column: 2/5;
   }
 
   .footer span {

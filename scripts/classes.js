@@ -1,8 +1,7 @@
 class StyledElement {
-  constructor (cssText='', elName='div') {
+  constructor (cssClass, elName='div') {
     this.element = document.createElement(elName)
-    this.element.style.cssText = cssText
-    this.cssText = cssText
+    this.element.className = cssClass
     document.getElementById('wrapper').appendChild(this.element)
   }
 
@@ -11,7 +10,7 @@ class StyledElement {
   }
 
   set text(text) {
-    this.element.innerHTML = text // textContent
+    this.element.innerHTML = text // or textContent
   }
 
   set add(el) {
@@ -85,8 +84,20 @@ class StyledElement {
     }
   }
 
+  addSaver(id) {
+    this.element.innerHTML += `<input type="button" name="${id}" id="${id}" style="display: none;"><label for="${id}" class="userBtn" id="${id}-label">Save</label>`
+
+    document.getElementById(id).addEventListener('click', function(e) {
+
+      const canvas = document.getElementById("defaultCanvas0")
+      const dataURL = canvas.toDataURL("image/png")
+      const newTab = window.open('about:blank','image from canvas')
+      newTab.document.write("<img src='" + dataURL + "' alt='from canvas'/>")
+    })
+  }
+
   addLoader(id) {
-    this.element.innerHTML += `<input type="file" name="${id}" id="${id}" accept="image/png" style="display: none;"><label for="${id}" id="${id}-label">Load</label>`
+    this.element.innerHTML += `<input type="file" name="${id}" id="${id}" accept="image/png" style="display: none;"><label for="${id}" class="userBtn" id="${id}-label">Load</label>`
     document.getElementById(id).addEventListener('change', function(e) {
       const tgt = e.target || window.event.srcElement
       const files = tgt.files
@@ -104,7 +115,7 @@ class StyledElement {
 
       // Not supported
       else {
-          console.error('Your browser dont support FileReader')
+          console.error('Your browser don\'t support FileReader')
       }
     })
 
@@ -112,27 +123,6 @@ class StyledElement {
 
   get currentRadioValue() {
     return Array.from(this.element.querySelectorAll(`input[name="${this.radiuosGroupName}"]`)).filter(el => el.checked)[0].value
-  }
-
-  set hoverStyles(cssText) {
-    function devCss(str) {
-      return str
-      .trim()
-      .split('\n')
-      .map(e => e.trim().split(':'))
-    }
-    const cssTextDev = devCss(cssText)
-    cssText = devCss(this.cssText).map((e, i) => {
-      const found = cssTextDev.filter(x => x[0] == e[0])
-      if (found.length == 1) e[1] = found[0][1]
-      return e
-    }).map(e => e.join(':')).join('\n')
-    this.element.addEventListener('mouseover', () => {
-      btn.element.style.cssText = cssText
-    })
-    this.element.addEventListener('mouseout', () => {
-      btn.element.style.cssText = this.cssText
-    })
   }
 
   set pressed(f) {
