@@ -89,12 +89,11 @@ class StyledElement {
 
     document.getElementById(id).addEventListener('click', function(e) {
       const downloadLink = document.getElementById(id)
-      downloadLink.setAttribute('download', 'CanvasAsImage.png')
+      downloadLink.setAttribute('download', 'myImg.png')
       const canvas = document.getElementById('defaultCanvas0')
-      const dataURL = canvas.toDataURL('image/png', .5)
-      const url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream')
-      downloadLink.setAttribute('href', url)
-      downloadLink.click()
+      const dataURL = canvas.toDataURL('image/png', 0)
+      // const url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream')
+      downloadLink.setAttribute('href', dataURL)
     })
   }
 
