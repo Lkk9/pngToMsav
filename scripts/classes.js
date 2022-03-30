@@ -85,14 +85,16 @@ class StyledElement {
   }
 
   addSaver(id) {
-    this.element.innerHTML += `<input type="button" name="${id}" id="${id}" style="display: none;"><label for="${id}" class="userBtn" id="${id}-label">Save</label>`
+    this.element.innerHTML += `<a class="userBtn" id="${id}">Save</a>`
 
     document.getElementById(id).addEventListener('click', function(e) {
-
-      const canvas = document.getElementById("defaultCanvas0")
-      const dataURL = canvas.toDataURL("image/png")
-      const newTab = window.open('about:blank','image from canvas')
-      newTab.document.write("<img src='" + dataURL + "' alt='from canvas'/>")
+      const downloadLink = document.getElementById(id)
+      downloadLink.setAttribute('download', 'CanvasAsImage.png')
+      const canvas = document.getElementById('defaultCanvas0')
+      const dataURL = canvas.toDataURL('image/png')
+      const url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream')
+      downloadLink.setAttribute('href', url)
+      downloadLink.click()
     })
   }
 
