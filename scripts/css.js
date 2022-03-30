@@ -327,15 +327,19 @@ cssStyle.innerHTML = `
       grid-column: 1/3;
     }
 
+    .head {
+      width: 100%;
+    }
+
     .sideBarInfo {
-      grid-row: 2/3;
+      grid-row: 6/7;
       grid-column: 1/3;
       height: auto;
       padding: 20px 30px;
     }
 
     .main {
-      grid-row: 3/4;
+      grid-row: 2/3;
       grid-column: 1/3;
     }
 
@@ -344,19 +348,19 @@ cssStyle.innerHTML = `
     }
 
     .saveContent {
-      grid-row: 4/5;
+      grid-row: 3/4;
       grid-column: 1/2;
       box-shadow: none;
     }
 
     .loadContent {
-      grid-row: 4/5;
+      grid-row: 3/4;
       grid-column: 2/3;
       box-shadow: none;
     }
 
     .info {
-      grid-row: 5/6;
+      grid-row: 4/5;
       grid-column: 1/3;
     }
 
@@ -365,7 +369,7 @@ cssStyle.innerHTML = `
     }
 
     .settings {
-      grid-row: 6/7;
+      grid-row: 5/6;
       grid-column: 1/3;
     }
 
