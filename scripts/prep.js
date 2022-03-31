@@ -119,6 +119,7 @@ function makeImg() {
       newImg.loadPixels()
       const curPersent = ~~((i+1)/myImg.height*100)
       info.text = `${curPersent}%${curPersent === 100 ? ', You can save your image.' : ''}<br/><progress class="progressStyles" max="100" value="${curPersent}">`
+
       if (curPersent === 100) start = false
 
       for (let j = 0; j < myImg.width; j++) {
@@ -136,9 +137,19 @@ function makeImg() {
       }
       newImg.updatePixels()
       image(newImg, 0, 0)
+      /////////////test
+            if (curPersent === 100) {
+
+                const canva = document.getElementById('defaultCanvas0')
+                const img = new Image()
+                img.src = canva.toDataURL()
+                document.body.appendChild(img)
+            }
+            /////////////
       sequence(++i)
     }, 0)
 
 
   }
+
 }
