@@ -137,15 +137,6 @@ function makeImg() {
       }
       newImg.updatePixels()
       image(newImg, 0, 0)
-      /////////////test
-            if (curPersent === 100) {
-
-                const canva = document.getElementById('defaultCanvas0')
-                const img = new Image()
-                img.src = canva.toDataURL()
-                document.body.appendChild(img)
-            }
-            /////////////
       sequence(++i)
     }, 0)
 
