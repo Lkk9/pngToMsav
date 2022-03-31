@@ -1,6 +1,15 @@
 const cssStyle = document.createElement('style')
 cssStyle.innerHTML = `
-    progress::-moz-progress-bar {
+
+  progress::-moz-progress-bar {
+    background: ${color.textLight};
+  }
+
+  progress::-webkit-progress-bar {
+    background: ${color.background};
+  }
+
+  progress::-webkit-progress-value {
     background: ${color.textLight};
   }
 
@@ -116,7 +125,8 @@ cssStyle.innerHTML = `
     color: ${color.textDark};
     background: ${color.main};
     margin: 20px 0;
-    padding: 1px 20px;
+    padding: 2px 20px;
+    text-align: center;
     text-transform: uppercase;
   }
 
