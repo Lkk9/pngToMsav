@@ -75,7 +75,7 @@ optionsTitle.text = 'Convert\'s options'
 // options buttons (input radio)
 const optionsRadios = new StyledElement('optionsRadios')
 
-optionsRadios.putRadio('plates only', 0, 'options')
+optionsRadios.putRadio('flat tiles', 0, 'options')
 optionsRadios.putRadio('all tiles', 1, 'options')
 optionsRadios.putRadio('custom', -1, 'options')
 optionsRadios.updateRadios('options')
