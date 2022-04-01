@@ -2,6 +2,7 @@
 let myImg = 'icons/default.png'
 let newImg
 let allColors = []
+let gammaCorrection = 1
 
 const allObjects = {
   // walls
@@ -19,7 +20,7 @@ const allObjects = {
 	'snow-pine': [238, 247, 255, 255],
 	'pine': [90, 159, 92, 255],
 	'dark-metal': [126, 128, 143, 255],
-  // plates
+  // plates (14)
 	'deep-water': [61, 73, 128, 255],
 	'water': [71, 84, 143, 255],
 	'tainted-water': [74, 57, 114, 255],
@@ -61,7 +62,14 @@ const allObjects = {
 	'dark-panel-3': [59, 60, 69, 255],
 	'dark-panel-4': [67, 69, 79, 255],
 	'dark-panel-5': [70, 67, 75, 255],
-	'dark-panel-6': [78, 69, 76, 255]
+	'dark-panel-6': [78, 69, 76, 255],
+  // ores
+  'copper': [217, 157, 115, 255],
+  'lead': [140, 127, 169, 255],
+  'scrap': [119, 119, 119, 255],
+  'coal': [39, 39, 39, 255],
+  'titanium': [141, 161, 227, 255],
+  'thorium': [249, 163, 199, 255]
 }
 let load = true
 let preloaded = false
@@ -81,6 +89,7 @@ function draw() {
     let canva = createCanvas(myImg.width, myImg.height)
     canva.parent('container')
     background(255)
+
     image(myImg, 0, 0)
     if (start) {
       start = false
@@ -98,12 +107,12 @@ function makeImg() {
 
   newImg = createImage(myImg.width, myImg.height)
 
-  function writeColor(image, x, y, red, green, blue, alpha) {
+  function writeColor(image, x, y, red, green, blue) {
     let index = (x + y * width) * 4;
-    image.pixels[index] = red;
-    image.pixels[index + 1] = green;
-    image.pixels[index + 2] = blue;
-    image.pixels[index + 3] = alpha;
+    image.pixels[index] = red
+    image.pixels[index + 1] = green
+    image.pixels[index + 2] = blue
+    image.pixels[index + 3] = 255;
   }
   let progressPersent = null
 
@@ -123,17 +132,18 @@ function makeImg() {
       if (curPersent === 100) start = false
 
       for (let j = 0; j < myImg.width; j++) {
-        const curPixel = myImg.get(j, i)
+        let curPixel = myImg.get(j, i)
+        curPixel = curPixel.map((c, p) => p == 3 ? 255 : Math.pow(255 * (c / 255), gammaCorrection))
         let nextPixel
         let val = Infinity
         for (let k = 0; k < allColors.length; k++) {
-          const curValue = curPixel.map((x, l) => Math.abs(x - allColors[k][l])).reduce((a, b) => a + b)
+          const curValue = curPixel.map((x, l) => l == 3 ? 255 : Math.abs(x - allColors[k][l])).reduce((a, b) => a + b)
           if (curValue < val) {
             nextPixel = allColors[k]
             val = curValue
           }
         }
-        writeColor(newImg, j, i, nextPixel[0], nextPixel[1], nextPixel[2], nextPixel[3])
+        writeColor(newImg, j, i, nextPixel[0], nextPixel[1], nextPixel[2])
       }
       newImg.updatePixels()
       image(newImg, 0, 0)

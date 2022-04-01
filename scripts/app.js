@@ -68,7 +68,9 @@ const settings = new StyledElement('settings')
 // only options (title)
 const options = new StyledElement('options')
 
-options.text = '<span style="margin-bottom: 20px;">Convert\'s options</span>'
+// title
+const optionsTitle = new StyledElement('optionsTitle')
+optionsTitle.text = 'Convert\'s options'
 
 // options buttons (input radio)
 const optionsRadios = new StyledElement('optionsRadios')
@@ -78,7 +80,14 @@ optionsRadios.putRadio('all tiles', 1, 'options')
 optionsRadios.putRadio('custom', -1, 'options')
 optionsRadios.updateRadios('options')
 
+// gamma correction slider
+const gamma = new StyledElement('gamma')
+gamma.text = 'Gamma: <span id="gammaValue">1</span>'
+gamma.addHtml = `<input class="slider" id="sliderGamma" type="range" min=".9" max="1.2" value="1" step=".02">`
+
 // ++
+options.add = optionsTitle
+options.add = gamma
 options.add = optionsRadios
 
 // hidden custom options
@@ -108,6 +117,10 @@ footer.addHtml = `<div class="center"><div>Contacts</div><div>Discord: <span sty
 
 // dynamic stuff
 setInterval(() => {
+
+  gammaCorrection = document.getElementById('sliderGamma').value
+  document.getElementById('gammaValue').innerHTML = gammaCorrection
+
   if (preloaded) {
     img.element.style.display = 'flex'
   } else {
@@ -122,7 +135,7 @@ setInterval(() => {
   let currentOption = +optionsRadios.currentRadioValue
   optionsCustom.element.style.display = 'none'
   if (currentOption === 0) {
-    allColors = Object.values(allObjects).splice(14)
+    allColors = Object.values(allObjects).splice(14, 42)
   } else if (currentOption === 1) {
     allColors = Object.values(allObjects)
   } else if (currentOption === -1) {

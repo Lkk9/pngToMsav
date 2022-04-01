@@ -1,16 +1,57 @@
 const cssStyle = document.createElement('style')
 cssStyle.innerHTML = `
 
+.progressStyles {
+  color: ${color.textLight};
+  background-color: ${color.background};
+  border: none;
+  margin-top: 40px;
+  border-radius: 6px;
+}
+
   progress::-moz-progress-bar {
     background: ${color.textLight};
+    border-radius: 6px;
   }
 
   progress::-webkit-progress-bar {
     background: ${color.background};
+    border-radius: 6px;
   }
 
   progress::-webkit-progress-value {
     background: ${color.textLight};
+    border-radius: 6px;
+  }
+
+  p {
+    display: flex;
+    justify-content: center;
+  }
+
+  .slider {
+    -webkit-appearance: none;
+    background: ${color.background};
+    outline: none;
+    border-radius: 6px;
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: ${color.regular};
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+  }
+  .slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    background: ${color.regular};
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
   }
 
   .headContainer {
@@ -26,16 +67,17 @@ cssStyle.innerHTML = `
 
   .head {
     display: flex;
-    font-size: 2.5em;
     min-height: 100%;
     width: auto;
     padding: 0 10%;
-    font-weight: 600;
     justify-content: center;
     background: ${color.header};
     align-items: center;
     color: ${color.textLight};
+    font-size: 2.5em;
+    font-weight: 600;
   }
+
 
   .main {
     grid-row: 2/3;
@@ -84,11 +126,20 @@ cssStyle.innerHTML = `
     flex-direction: column;
   }
 
+  .options > * {
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .optionsTitle {
+    text-align: center;
+    font-size: 1.1em;
+  }
+
   .optionsRadios {
     width: 100%;
     height: 100%;
     display: flex;
-    padding: 20px;
     justify-content: space-around;
   }
 
@@ -118,13 +169,26 @@ cssStyle.innerHTML = `
     box-shadow: 0px 5px 20px rgba(0,0,0,.25);
   }
 
+  .gamma {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+
+  .gamma #gammaValue {
+    width: 50px;
+    text-align: left;
+  }
+
   .topic {
     display: inline-block;
     font-weight: 600;
     text-align: center;
     color: ${color.textDark};
     background: ${color.main};
-    margin: 20px 0;
+    margin: 20px 20px 20px 0;
     padding: 2px 20px;
     text-align: center;
     text-transform: uppercase;
@@ -205,13 +269,6 @@ cssStyle.innerHTML = `
 
   #loader-label {
     border: dashed 5px ${color.main};
-  }
-
-  .progressStyles {
-    color: ${color.textLight};
-    background-color: ${color.background};
-    border: none;
-    margin-top: 40px;
   }
 
   .radioGroup {
@@ -372,11 +429,15 @@ cssStyle.innerHTML = `
     .info {
       grid-row: 4/5;
       grid-column: 1/3;
+      padding-bottom: 0;
     }
 
-    .options {
-      padding: 15px 0px 30px 0px;
-    }
+    /*
+
+        .options {
+          padding: 15px 0px 30px 0px;
+        }
+    */
 
     .settings {
       grid-row: 5/6;

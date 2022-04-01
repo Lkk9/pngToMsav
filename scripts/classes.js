@@ -10,7 +10,7 @@ class StyledElement {
   }
 
   set text(text) {
-    this.element.innerHTML = text // or textContent
+    this.element.innerHTML = text
   }
 
   set add(el) {
