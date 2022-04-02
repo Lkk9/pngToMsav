@@ -51,18 +51,45 @@ headContainer.add = head
 
 // info
 const info = new StyledElement('info')
-info.text = 'Press the button to start converting.'
 
+const infoBefore = new StyledElement('infoContainer') // before converting
+const infoAfter = new StyledElement('infoContainer') // after converting
+const infoConverting = new StyledElement('infoContainer') // while converting
+
+infoConverting.hide()
+infoConverting.text = '<span style="padding: 52px 0;">Converting...</span>'
+
+infoBefore.text = 'Press the button to start converting.'
 // convert button
-const btn = new StyledElement('btn', 'button')
-btn.text = 'Convert'
-btn.pressed = () => {
-  info.text = 'Converting...'
+const btnConvert = new StyledElement('btn', 'button')
+btnConvert.text = 'Convert'
+btnConvert.pressed = () => {
+  infoBefore.hide()
+  infoConverting.show('flex')
   setTimeout(() => makeImg(),0)
-  setTimeout(() => info.text = 'Done, you can save your image.',0)
+  setTimeout(() => {
+    infoConverting.hide()
+    infoAfter.show('flex')
+  },0)
 }
+infoBefore.add = btnConvert
+
+infoAfter.hide()
+infoAfter.text = 'Done, you can save your image.'
+// reload button
+const btnReload = new StyledElement('btn', 'button')
+btnReload.text = 'Show previous image'
+btnReload.pressed = () => {
+  myImg = lastImg
+  load = true
+  infoAfter.hide()
+  infoBefore.show('flex')
+}
+infoAfter.add = btnReload
 // ++
-info.add = btn
+info.add = infoBefore
+info.add = infoConverting
+info.add = infoAfter
 
 // all stuff from options
 const settings = new StyledElement('settings')
@@ -128,21 +155,21 @@ setInterval(() => {
 
   if (myImg?.width > 1 && myImg?.height > 1) {
     imgSize.text = `${myImg?.width}X${myImg?.height} px`
-    img.element.style.display = 'block'
-  } else imgSize.text = ''
+    img.show()
+  }
 
   if (myImg.width*myImg.height > 500**2)
-    warningSize.element.style.display = 'block'
+    warningSize.show()
   else
-    warningSize.element.style.display = 'none'
+    warningSize.hide()
 
   let currentOption = +optionsRadios.currentRadioValue
-  optionsCustom.element.style.display = 'none'
+  optionsCustom.hide()
   if (currentOption === 0) {
     allColors = Object.values(allObjects).splice(14, 42)
   } else if (currentOption === 1) {
     allColors = Object.values(allObjects)
   } else if (currentOption === -1) {
-    optionsCustom.element.style.display = 'grid'
+    optionsCustom.show('grid')
   }
 }, 0)

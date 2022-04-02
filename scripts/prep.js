@@ -1,4 +1,4 @@
-
+let lastImg
 let myImg = 'icons/default.png'
 let allColors = []
 let gammaCorrection = 1
@@ -73,6 +73,7 @@ const allObjects = {
 let load = false
 let preloaded = false
 function preload() {
+  lastImg = myImg
   myImg = loadImage(myImg)
   load = false
   preloaded = true

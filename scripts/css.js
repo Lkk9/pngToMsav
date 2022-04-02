@@ -98,14 +98,19 @@ cssStyle.innerHTML = `
     grid-column: 3/4;
     background: ${color.main};
     color: ${color.textDark};
-    padding: 30px 40px;
-    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     border-radius: 8px;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 30px 40px;
   }
 
   .settings {
@@ -153,8 +158,7 @@ cssStyle.innerHTML = `
 
   .btn {
     background: ${color.textLight}cc;
-    width: 120px;
-    height: 60px;
+    padding: 15px 10%;
     font-weight: 600;
     font-size: 1em;
     color: ${color.textDark}cc;
@@ -204,7 +208,7 @@ cssStyle.innerHTML = `
     border-radius: 8px;
     border: 2px solid ${color.textDark};
     max-width: 100%;
-    min-width: 10%;
+    min-width: 200px;
   }
 
   .warningSize {

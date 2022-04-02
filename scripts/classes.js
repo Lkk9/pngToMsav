@@ -21,6 +21,13 @@ class StyledElement {
     this.element.innerHTML += html
   }
 
+  hide() {
+    this.element.style.display = 'none'
+  }
+  show(t='block') {
+    this.element.style.display = t
+  }
+
   addGroup(topic, mainText) {
     this.element.innerHTML += `<div class="group"><span class="topic">${topic}</span><div class="mainText">${mainText}</div></div>`
   }
