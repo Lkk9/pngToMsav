@@ -91,8 +91,7 @@ class StyledElement {
       const downloadLink = document.getElementById(id)
       downloadLink.setAttribute('download', 'image.png')
       const canvas = document.getElementById('defaultCanvas0')
-      const dataURL = canvas.toDataURL('image/png', 0)
-      // const url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream')
+      const dataURL = canvas.toDataURL('image/png')
       downloadLink.setAttribute('href', dataURL)
     })
   }

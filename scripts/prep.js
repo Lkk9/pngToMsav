@@ -1,6 +1,5 @@
 
 let myImg = 'icons/default.png'
-let newImg
 let allColors = []
 let gammaCorrection = 1
 
@@ -71,86 +70,50 @@ const allObjects = {
   'titanium': [141, 161, 227, 255],
   'thorium': [249, 163, 199, 255]
 }
-let load = true
+let load = false
 let preloaded = false
 function preload() {
-  if (load) {
-    myImg = loadImage(myImg)
-    preloaded = true
-    load = false
-  }
+  myImg = loadImage(myImg)
+  load = false
+  preloaded = true
 }
 
-let start = false
 function draw() {
   if (load) {
-    preload()
-  } else if (preloaded) {
-    let canva = createCanvas(myImg.width, myImg.height)
-    canva.parent('container')
-    background(255)
-
-    image(myImg, 0, 0)
-    if (start) {
-      start = false
-      noLoop()
-      makeImg()
+      preload()
+    } else if (preloaded) {
+      createCanvas(myImg.width, myImg.height)
+      image(myImg, 0, 0)
+      if (myImg.width > 1 && myImg.height > 1) preloaded = false
     }
-  }
-
-
 }
 
 function makeImg() {
 
-  console.log('start converting...')
+  const canvas = document.getElementById('defaultCanvas0')
+  const ctx = canvas.getContext('2d')
+  const imageData = ctx.getImageData(0.0, 0.0, canvas.width, canvas.height)
+  const data = imageData.data
 
-  newImg = createImage(myImg.width, myImg.height)
+  for (let i = 0; i < data.length; i+=4) {
 
-  function writeColor(image, x, y, red, green, blue) {
-    let index = (x + y * width) * 4;
-    image.pixels[index] = red
-    image.pixels[index + 1] = green
-    image.pixels[index + 2] = blue
-    image.pixels[index + 3] = 255;
-  }
-  let progressPersent = null
+    const curPixel = [data[i], data[i+1], data[i+2], 255].map((c, p) => p == 3 ? 255 : 255 * Math.pow((c / 255), 1/gammaCorrection))
 
-  sequence(0)
-  function sequence(i) {
-
-    if (i >= myImg.height) {
-      console.log('done')
-      return
+    let nextPixel = [[0,0,0,255]]
+    let val = Infinity
+    for (let k = 0; k < allColors.length; k++) {
+      const curValue = curPixel.map((x, l) => l == 3 ? 255 : Math.abs(x - allColors[k][l])).reduce((a, b) => a + b)
+      if (curValue < val) {
+        nextPixel = allColors[k]
+        val = curValue
+      }
     }
 
-    setTimeout(() => {
-      newImg.loadPixels()
-      const curPersent = ~~((i+1)/myImg.height*100)
-      info.text = `${curPersent}%${curPersent === 100 ? ', You can save your image.' : ''}<br/><progress class="progressStyles" max="100" value="${curPersent}">`
-
-      if (curPersent === 100) start = false
-
-      for (let j = 0; j < myImg.width; j++) {
-        let curPixel = myImg.get(j, i)
-        curPixel = curPixel.map((c, p) => p == 3 ? 255 : Math.pow(255 * (c / 255), gammaCorrection))
-        let nextPixel
-        let val = Infinity
-        for (let k = 0; k < allColors.length; k++) {
-          const curValue = curPixel.map((x, l) => l == 3 ? 255 : Math.abs(x - allColors[k][l])).reduce((a, b) => a + b)
-          if (curValue < val) {
-            nextPixel = allColors[k]
-            val = curValue
-          }
-        }
-        writeColor(newImg, j, i, nextPixel[0], nextPixel[1], nextPixel[2])
-      }
-      newImg.updatePixels()
-      image(newImg, 0, 0)
-      sequence(++i)
-    }, 0)
-
-
+    data[i] = nextPixel[0]
+    data[i+1] = nextPixel[1]
+    data[i+2] = nextPixel[2]
+    data[i+3] = 255
   }
+  ctx.putImageData(imageData, 0, 0)
 
 }

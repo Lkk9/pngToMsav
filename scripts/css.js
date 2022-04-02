@@ -105,6 +105,7 @@ cssStyle.innerHTML = `
     align-items: center;
     flex-direction: column;
     border-radius: 8px;
+    text-align: center;
   }
 
   .settings {
@@ -178,32 +179,32 @@ cssStyle.innerHTML = `
 
 
   .gamma #gammaValue {
-    width: 50px;
+    width: 40px;
     text-align: left;
   }
 
   .topic {
     display: inline-block;
     font-weight: 600;
+    font-size: 1.1em;
     text-align: center;
     color: ${color.textDark};
-    background: ${color.main};
-    margin: 20px 20px 20px 0;
-    padding: 2px 20px;
+    padding: 20px 0;
     text-align: center;
     text-transform: uppercase;
   }
 
   .imgSize {
     color: ${color.textDark};
+    margin-bottom: 20px;
   }
 
   .img {
-    display: none;
-    margin-top: 20px;
-    justify-content: center;
+    display: none; /*before loaded*/
     border-radius: 8px;
     border: 2px solid ${color.textDark};
+    max-width: 100%;
+    min-width: 10%;
   }
 
   .warningSize {

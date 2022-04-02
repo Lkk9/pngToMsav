@@ -27,7 +27,7 @@ const saveContent = new StyledElement('saveContent')
 saveContent.addSaver('saver')
 
 // canvas
-const img = new StyledElement('img')
+const img = new StyledElement('img', 'img')
 img.id = 'container'
 
 // warning alert
@@ -39,7 +39,7 @@ main.add = imgSize
 main.add = img
 main.add = warningSize
 
-// all header
+// whole header
 const headContainer = new StyledElement('headContainer')
 
 // logo
@@ -57,7 +57,9 @@ info.text = 'Press the button to start converting.'
 const btn = new StyledElement('btn', 'button')
 btn.text = 'Convert'
 btn.pressed = () => {
-  start = true
+  info.text = 'Converting...'
+  setTimeout(() => makeImg(),0)
+  setTimeout(() => info.text = 'Done, you can save your image.',0)
 }
 // ++
 info.add = btn
@@ -83,7 +85,7 @@ optionsRadios.updateRadios('options')
 // gamma correction slider
 const gamma = new StyledElement('gamma')
 gamma.text = 'Gamma: <span id="gammaValue">1</span>'
-gamma.addHtml = `<input class="slider" id="sliderGamma" type="range" min=".9" max="1.2" value="1" step=".02">`
+gamma.addHtml = `<input class="slider" id="sliderGamma" type="range" min="0.1" max="2" value="1" step=".1">`
 
 // ++
 options.add = optionsTitle
@@ -121,16 +123,18 @@ setInterval(() => {
   gammaCorrection = document.getElementById('sliderGamma').value
   document.getElementById('gammaValue').innerHTML = gammaCorrection
 
-  if (preloaded) {
-    img.element.style.display = 'flex'
-  } else {
-    document.getElementById('loader-label').style.display = 'block'
-    img.element.style.display = 'none'
-  }
-  imgSize.text = myImg?.width > 1 && myImg?.height > 1 ? `${myImg?.width}X${myImg?.height} px` : ''
+  const src = document.getElementById('defaultCanvas0')?.toDataURL('image/png')
+  img.element.src = !!src ? src : ''
 
-  if (myImg.width*myImg.height > 500**2) warningSize.element.style.display = 'block'
-  else warningSize.element.style.display = 'none'
+  if (myImg?.width > 1 && myImg?.height > 1) {
+    imgSize.text = `${myImg?.width}X${myImg?.height} px`
+    img.element.style.display = 'block'
+  } else imgSize.text = ''
+
+  if (myImg.width*myImg.height > 500**2)
+    warningSize.element.style.display = 'block'
+  else
+    warningSize.element.style.display = 'none'
 
   let currentOption = +optionsRadios.currentRadioValue
   optionsCustom.element.style.display = 'none'
