@@ -57,7 +57,7 @@ const infoAfter = new StyledElement('infoContainer') // after converting
 const infoConverting = new StyledElement('infoContainer') // while converting
 
 infoConverting.hide()
-infoConverting.text = '<span style="padding: 52px 0;">Converting...</span>'
+infoConverting.text = '<span style="padding: 47px 0;">Converting...</span>'
 
 infoBefore.text = 'Press the button to start converting.'
 // convert button

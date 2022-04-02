@@ -126,14 +126,14 @@ cssStyle.innerHTML = `
     background: ${color.main};
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    padding: 30px 40px;
     flex-direction: column;
+    padding-top: 15px;
   }
 
   .options > * {
-    padding: 20px 0;
+    padding: 15px 0;
     width: 100%;
   }
 
@@ -147,6 +147,7 @@ cssStyle.innerHTML = `
     height: 100%;
     display: flex;
     justify-content: space-around;
+    padding-bottom: 45px;
   }
 
   .optionsCustom {
@@ -162,7 +163,7 @@ cssStyle.innerHTML = `
     font-weight: 600;
     font-size: 1em;
     color: ${color.textDark}cc;
-    margin-top: 40px;
+    margin-top: 30px;
     cursor: pointer;
     border: none;
     border-radius: 4px;
@@ -434,7 +435,7 @@ cssStyle.innerHTML = `
     .info {
       grid-row: 4/5;
       grid-column: 1/3;
-      padding-bottom: 0;
+      border-bottom: 2px solid ${color.header}33;
     }
 
     /*
