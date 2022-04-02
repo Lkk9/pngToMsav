@@ -188,13 +188,13 @@ cssStyle.innerHTML = `
   }
 
   .topic {
-    display: inline-block;
+    display: block;
     font-weight: 600;
     font-size: 1.1em;
     text-align: center;
     color: ${color.textDark};
     padding: 20px 0;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
   }
 
