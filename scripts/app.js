@@ -138,7 +138,7 @@ const sideBarInfo = new StyledElement('sideBarInfo')
 
 sideBarInfo.addGroup('help', 'Load your image, press convert button and wait for process. You can apply some options below.')
 sideBarInfo.addGroup('import in game', 'To make an image a mindustry map go to <div class="command">1. editor</div><div class="command">2. new map</div><div class="command">3. menu (in map editor)</div><div class="command">4. import</div><div class="command">5. import image file</div><div class="command">6. and open converted image</div>')
-sideBarInfo.addGroup('note', 'Don\'t make nsfw arts.')
+sideBarInfo.addGroup('note', 'Don\'t make nsfw and furry arts.')
 
 // footer
 const footer = new StyledElement('footer')
