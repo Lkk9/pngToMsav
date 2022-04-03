@@ -33,6 +33,7 @@ cssStyle.innerHTML = `
     -webkit-appearance: none;
     background: ${color.background};
     outline: none;
+    width: 230px;
     border-radius: 6px;
   }
   .slider::-webkit-slider-thumb {
@@ -184,8 +185,9 @@ cssStyle.innerHTML = `
 
 
   .gamma #gammaValue {
-    width: 40px;
+    width: 50px;
     text-align: left;
+    margin-left: 5px;
   }
 
   .topic {

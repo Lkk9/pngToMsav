@@ -112,7 +112,7 @@ optionsRadios.updateRadios('options')
 // gamma correction slider
 const gamma = new StyledElement('gamma')
 gamma.text = 'Gamma: <span id="gammaValue">1</span>'
-gamma.addHtml = `<input class="slider" id="sliderGamma" type="range" min="0.1" max="2" value="1" step=".1">`
+gamma.addHtml = `<input class="slider" id="sliderGamma" type="range" min="0.1" max="2" value="1" step=".02">`
 
 // ++
 options.add = optionsTitle
