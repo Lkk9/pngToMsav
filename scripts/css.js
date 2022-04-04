@@ -169,6 +169,7 @@ cssStyle.innerHTML = `
     border: none;
     border-radius: 4px;
     box-shadow: none;
+    transition: 100ms;
   }
   .btn:hover {
     color: ${color.textDark};

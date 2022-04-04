@@ -123,8 +123,7 @@ options.add = optionsRadios
 const optionsCustom = new StyledElement('optionsCustom')
 
 const allStuffName = Object.keys(allObjects)
-for (let i = 0; i < allStuffName.length; i++) {
-  const icon = allStuffName[i]
+for (let icon of allStuffName) {
   optionsCustom.putCheckbox(icon.split('-').join(' '), icon, 'custom')
 }
 optionsCustom.updateCheckboxes('custom')
