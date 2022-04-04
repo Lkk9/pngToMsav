@@ -65,7 +65,9 @@ btnConvert.text = 'Convert'
 btnConvert.pressed = () => {
   infoBefore.hide()
   infoConverting.show('flex')
-  window.scrollTo({ top: headContainer.element.getBoundingClientRect().bottom+window.scrollY, behavior: 'smooth' })
+  const top = headContainer.element.getBoundingClientRect().bottom
+  console.log(top);
+  if (top < 0) window.scrollTo({ top: top+window.scrollY, behavior: 'smooth' })
   setTimeout(() => makeImg(),0)
   setTimeout(() => {
     infoConverting.hide()
