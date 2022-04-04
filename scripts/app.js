@@ -28,7 +28,6 @@ saveContent.addSaver('saver')
 
 // canvas
 const img = new StyledElement('img', 'img')
-img.id = 'container'
 
 // warning alert
 const warningSize = new StyledElement('warningSize')
@@ -66,6 +65,7 @@ btnConvert.text = 'Convert'
 btnConvert.pressed = () => {
   infoBefore.hide()
   infoConverting.show('flex')
+  window.scrollTo({ top: headContainer.element.getBoundingClientRect().bottom+window.scrollY, behavior: 'smooth' })
   setTimeout(() => makeImg(),0)
   setTimeout(() => {
     infoConverting.hide()

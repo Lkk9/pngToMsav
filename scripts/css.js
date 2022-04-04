@@ -212,6 +212,7 @@ cssStyle.innerHTML = `
     border-radius: 8px;
     border: 2px solid ${color.textDark};
     max-width: 100%;
+    max-height: 400px;
     min-width: 200px;
   }
 
