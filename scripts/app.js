@@ -13,18 +13,18 @@ const color = {
 document.body.style.backgroundColor = color.background
 
 // picture
-const main = new StyledElement('main')
+const main = new StyledElement('main shadow')
 
 // picture size
 const imgSize = new StyledElement('imgSize')
 
 // load button
-const loadContent = new StyledElement('loadContent')
-loadContent.addLoader('loader')
+const loadContent = new StyledElement('loadContent dataInteraction')
+loadContent.addLoader('loader', 'Upload', 'shadow')
 
 // save button
-const saveContent = new StyledElement('saveContent')
-saveContent.addSaver('saver')
+const saveContent = new StyledElement('saveContent dataInteraction')
+saveContent.addSaver('saver', 'Download', 'shadow')
 
 // canvas
 const img = new StyledElement('img', 'img')
@@ -39,7 +39,7 @@ main.add = img
 main.add = warningSize
 
 // whole header
-const headContainer = new StyledElement('headContainer')
+const headContainer = new StyledElement('headContainer shadow')
 
 // logo
 const head = new StyledElement('head')
@@ -49,7 +49,7 @@ head.text = 'PNG to MSAV'
 headContainer.add = head
 
 // info
-const info = new StyledElement('info')
+const info = new StyledElement('info shadow')
 
 const infoBefore = new StyledElement('infoContainer') // before converting
 const infoAfter = new StyledElement('infoContainer') // after converting
@@ -93,7 +93,7 @@ info.add = infoConverting
 info.add = infoAfter
 
 // all stuff from options
-const settings = new StyledElement('settings')
+const settings = new StyledElement('settings shadow')
 
 // only options (title)
 const options = new StyledElement('options')
@@ -134,14 +134,14 @@ settings.add = options
 settings.add = optionsCustom
 
 // side bar
-const sideBarInfo = new StyledElement('sideBarInfo')
+const sideBarInfo = new StyledElement('sideBarInfo shadow')
 
 sideBarInfo.addGroup('help', 'Load your image, press convert button and wait for process. You can apply some options below.')
 sideBarInfo.addGroup('import in game', 'To make an image a mindustry map go to <div class="command">1. editor</div><div class="command">2. new map</div><div class="command">3. menu (in map editor)</div><div class="command">4. import</div><div class="command">5. import image file</div><div class="command">6. and open converted image</div>')
 sideBarInfo.addGroup('note', 'Don\'t make nsfw and furry arts.')
 
 // footer
-const footer = new StyledElement('footer')
+const footer = new StyledElement('footer shadow')
 footer.addHtml = `<div class="center"><div>Contacts</div><div>Discord: <span style="color: #5865F2">L' kk#6790</span></div><div>Github: <a class="a" target="_blank" href="https://github.com/Lkk9">Lkk9</a></div></div><div class="cop" style="user-select: none;">Copyright (c) 2022 Copyright Holder All Rights Reserved.</div>`
 
 // dynamic stuff

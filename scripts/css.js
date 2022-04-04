@@ -1,13 +1,52 @@
 const cssStyle = document.createElement('style')
 cssStyle.innerHTML = `
 
-.progressStyles {
-  color: ${color.textLight};
-  background-color: ${color.background};
-  border: none;
-  margin-top: 40px;
-  border-radius: 6px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@400;600&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Mohave', sans-serif;
+    font-weight: 400;
+  }
+  a {
+    text-decoration: none;
+  }
+  body {
+    font-size: 1.5em;
+  }
+  #wrapper {
+    user-select: none;
+    min-height: 100vh;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-rows: 80px auto auto auto 1fr auto 0;
+    grid-template-columns: 0 auto auto auto 25vw;
+  }
+
+  .shadow {
+    box-shadow: 0px 5px 20px rgba(0,0,0,.25);
+  }
+
+  .command {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background: rgba(0,0,0,.125);
+    border-radius: 6px;
+  }
+
+  #defaultCanvas0 {
+    display: none;
+  }
+
+  .progressStyles {
+    color: ${color.textLight};
+    background-color: ${color.background};
+    border: none;
+    margin-top: 40px;
+    border-radius: 6px;
+  }
 
   progress::-moz-progress-bar {
     background: ${color.textLight};
@@ -242,43 +281,52 @@ cssStyle.innerHTML = `
     user-select: text;
   }
 
+  .dataInteraction {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loadContent:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("img/arrowUp.png") no-repeat center;
+    background-size: 14%;
+    opacity: .1;
+    z-index: -1;
+  }
   .loadContent {
     grid-row: 3/4;
     grid-column: 4/5;
-    background: ${color.regular};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
   }
 
+  .saveContent:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("img/arrowDown.png") no-repeat center;
+    background-size: 14%;
+    opacity: .1;
+    z-index: -1;
+  }
   .saveContent {
     grid-row: 3/4;
     grid-column: 2/3;
-    background: ${color.regular};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
   }
 
   .userBtn {
-    background: ${color.regular};
     padding: 20px 20%;
     margin: 20px;
     font-weight: 600;
     font-size: 1.1em;
     cursor: pointer;
     color: ${color.textDark};
+    background: ${color.regular}cc;
     border-radius: 10px;
-  }
-
-  #saver {
-    border: solid 5px ${color.main};
-  }
-
-  #loader-label {
-    border: dashed 5px ${color.main};
   }
 
   .radioGroup {
@@ -396,6 +444,9 @@ cssStyle.innerHTML = `
 
     #wrapper > * {
       border-radius: 0;
+    }
+
+    .shadow {
       box-shadow: none;
     }
 
