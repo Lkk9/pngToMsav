@@ -9,9 +9,6 @@ const color = {
   link: '#14213d'
 }
 
-// bg
-document.body.style.backgroundColor = color.background
-
 // picture
 const main = new StyledElement('main shadow')
 

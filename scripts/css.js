@@ -3,6 +3,10 @@ cssStyle.innerHTML = `
 
 @import url('https://fonts.googleapis.com/css2?family=Mohave:wght@400;600&display=swap');
 
+  body {
+    background: ${color.background};
+  }
+
   .progressStyles {
     color: ${color.textLight};
     background-color: ${color.background};
@@ -60,7 +64,6 @@ cssStyle.innerHTML = `
     justify-content: center;
     background: ${color.regular};
     align-items: center;
-    overflow-y: hidden;
   }
 
   .head {
@@ -75,7 +78,6 @@ cssStyle.innerHTML = `
     font-size: 2.5em;
     font-weight: 600;
   }
-
 
   .main {
     grid-row: 2/3;
@@ -248,13 +250,14 @@ cssStyle.innerHTML = `
   .loadContent:before {
     content: '';
     position: absolute;
-    width: 100%;
+    width: 14%;
     height: 100%;
     background: url("img/arrowUp.png") no-repeat center;
-    background-size: 14%;
+    background-size: 100%;
     opacity: .1;
     z-index: -1;
   }
+
   .loadContent {
     grid-row: 3/4;
     grid-column: 4/5;
@@ -263,10 +266,10 @@ cssStyle.innerHTML = `
   .saveContent:before {
     content: '';
     position: absolute;
-    width: 100%;
+    width: 14%;
     height: 100%;
     background: url("img/arrowDown.png") no-repeat center;
-    background-size: 14%;
+    background-size: 100%;
     opacity: .1;
     z-index: -1;
   }
