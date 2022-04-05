@@ -40,7 +40,7 @@ const headContainer = new StyledElement('headContainer shadow')
 
 // logo
 const head = new StyledElement('head')
-head.text = 'PNG to MSAV'
+head.addHtml = 'PNG to MSAV'
 
 // ++
 headContainer.add = head
@@ -53,12 +53,12 @@ const infoAfter = new StyledElement('infoContainer') // after converting
 const infoConverting = new StyledElement('infoContainer') // while converting
 
 infoConverting.hide()
-infoConverting.text = '<span style="padding: 47px 0;">Converting...</span>'
+infoConverting.addHtml = '<span style="padding: 47px 0;">Converting...</span>'
 
 infoBefore.text = 'Press the button to start converting.'
 // convert button
 const btnConvert = new StyledElement('btn', 'button')
-btnConvert.text = 'Convert'
+btnConvert.addHtml = 'Convert'
 btnConvert.pressed = () => {
   infoBefore.hide()
   infoConverting.show('flex')
@@ -76,7 +76,7 @@ infoAfter.hide()
 infoAfter.text = 'Done, you can save your image.'
 // reload button
 const btnReload = new StyledElement('btn', 'button')
-btnReload.text = 'Show previous image'
+btnReload.addHtml = 'Show previous image'
 btnReload.pressed = () => {
   myImg = lastImg
   load = true
@@ -109,7 +109,7 @@ optionsRadios.updateRadios('options')
 
 // gamma correction slider
 const gamma = new StyledElement('gamma')
-gamma.text = 'Gamma: <span id="gammaValue">1</span>'
+gamma.addHtml = 'Gamma: <span id="gammaValue">1</span>'
 gamma.addHtml = `<input class="slider" id="sliderGamma" type="range" min="0.1" max="2" value="1" step=".02">`
 
 // ++
@@ -151,7 +151,7 @@ setInterval(() => {
   img.element.src = !!src ? src : ''
 
   if (myImg?.width > 1 && myImg?.height > 1) {
-    imgSize.text = `${myImg?.width}X${myImg?.height} px`
+    imgSize.element.innerHTML = `${myImg?.width}X${myImg?.height} px`
     img.show()
   }
 
