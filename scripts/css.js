@@ -44,6 +44,7 @@ cssStyle.innerHTML = `
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     background: ${color.regular};
+    box-shadow: 0px 5px 20px rgba(0,0,0,.125);
     appearance: none;
     width: 25px;
     height: 25px;
@@ -53,6 +54,7 @@ cssStyle.innerHTML = `
   .slider::-moz-range-thumb {
     -webkit-appearance: none;
     background: ${color.regular};
+    box-shadow: 0px 5px 20px rgba(0,0,0,.125);
     appearance: none;
     width: 25px;
     height: 25px;
@@ -234,6 +236,7 @@ cssStyle.innerHTML = `
 
   .cop {
     opacity: .5;
+    text-align: center;
   }
 
   .sideBarInfo {
