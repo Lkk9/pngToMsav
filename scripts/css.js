@@ -2,43 +2,6 @@ const cssStyle = document.createElement('style')
 cssStyle.innerHTML = `
 
 @import url('https://fonts.googleapis.com/css2?family=Mohave:wght@400;600&display=swap');
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    font-family: 'Mohave', sans-serif;
-    font-weight: 400;
-  }
-  a {
-    text-decoration: none;
-  }
-  body {
-    font-size: 1.5em;
-  }
-  #wrapper {
-    user-select: none;
-    min-height: 100vh;
-    display: grid;
-    grid-gap: 50px;
-    grid-template-rows: 80px auto auto auto 1fr auto 0;
-    grid-template-columns: 0 auto auto auto 25vw;
-  }
-
-  .shadow {
-    box-shadow: 0px 5px 20px rgba(0,0,0,.25);
-  }
-
-  .command {
-    padding: 10px 20px;
-    margin: 10px 0;
-    background: rgba(0,0,0,.125);
-    border-radius: 6px;
-  }
-
-  #defaultCanvas0 {
-    display: none;
-  }
 
   .progressStyles {
     color: ${color.textLight};
@@ -61,11 +24,6 @@ cssStyle.innerHTML = `
   progress::-webkit-progress-value {
     background: ${color.textLight};
     border-radius: 6px;
-  }
-
-  p {
-    display: flex;
-    justify-content: center;
   }
 
   .slider {
@@ -222,7 +180,6 @@ cssStyle.innerHTML = `
     align-items: center;
     width: 100%;
   }
-
 
   .gamma #gammaValue {
     width: 50px;
