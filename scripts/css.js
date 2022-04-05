@@ -7,6 +7,10 @@ cssStyle.innerHTML = `
     background: ${color.background};
   }
 
+  .shadow {
+    box-shadow: 0px 5px 20px rgba(0,0,0,.25);
+  }
+
   .progressStyles {
     color: ${color.textLight};
     background-color: ${color.background};
@@ -111,20 +115,21 @@ cssStyle.innerHTML = `
     align-items: center;
     text-align: center;
     padding: 30px 40px;
+    min-width: 420px;
   }
 
   .settings {
     grid-row: 4/5;
     grid-column: 2/5;
-    background: ${color.regular};
     color: ${color.textDark};
     flex-direction: column;
     border-radius: 8px;
+    overflow: hidden;
   }
 
   .options {
-    background: ${color.main};
     width: 100%;
+    background: ${color.main};
     display: flex;
     justify-content: space-around;
     align-items: center;
