@@ -62,7 +62,7 @@ btnConvert.addHtml = 'Convert'
 btnConvert.pressed = () => {
   infoBefore.hide()
   infoConverting.show('flex')
-  const top = headContainer.element.getBoundingClientRect().bottom
+  const top = headContainer.element.getBoundingClientRect().bottom+2
   if (top < 0) window.scrollTo({ top: top+window.scrollY, behavior: 'smooth' })
   setTimeout(() => makeImg(),0)
   setTimeout(() => {
