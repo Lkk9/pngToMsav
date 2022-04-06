@@ -139,7 +139,12 @@ sideBarInfo.addGroup('note', 'Don\'t make nsfw and furry arts.')
 
 // footer
 const footer = new StyledElement('footer shadow')
-footer.addHtml = `<div class="center"><div>Contacts</div><div>Discord: <span style="color: #5865F2">L' kk#6790</span></div><div>Github: <a class="a" target="_blank" href="https://github.com/Lkk9">Lkk9</a></div></div><div class="cop" style="user-select: none;">Copyright (c) 2022 Copyright Holder All Rights Reserved.</div>`
+footer.addHtml = `<div class="center">
+  <div>Contacts</div>
+  <div>Discord: <span class="link">L' kk#6790</span></div>
+  <div>Github: <a class="link" target="_blank" href="https://github.com/Lkk9">Lkk9</a></div>
+  <div class="cop" style="user-select: none;">Copyright (c) 2022 Copyright Holder All Rights Reserved.</div>
+</div>`
 
 // dynamic stuff
 setInterval(() => {

@@ -228,8 +228,10 @@ cssStyle.innerHTML = `
     color: rgba(255,0,0,.5);
   }
 
-  .a {
-    color: #6cc644;
+  .link {
+    color: ${color.textLight};
+  }
+  a[class="link"] {
     text-decoration-line: underline;
     text-decoration-style: dashed;
   }
