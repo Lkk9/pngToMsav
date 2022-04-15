@@ -28,7 +28,7 @@ const img = new StyledElement('img', 'img')
 
 // warning alert
 const warningSize = new StyledElement('warningSize')
-warningSize.text = 'Do not load huge pictures, it may lag while converting'
+warningSize.text = 'Do not load huge pictures, it may unresponsive while converting'
 
 // adding all stuff above (++)
 main.add = imgSize
@@ -53,7 +53,8 @@ const infoAfter = new StyledElement('infoContainer') // after converting
 const infoConverting = new StyledElement('infoContainer') // while converting
 
 infoConverting.hide()
-infoConverting.addHtml = '<span style="padding: 47px 0;">Converting...</span>'
+infoConverting.addHtml = '<span style="padding: 47px 0;">Converting...</span><span style="padding: 23px 0;">Please be patient, the system is converting your image</span>'
+
 
 infoBefore.text = 'Press the button to start converting.'
 // convert button
@@ -73,10 +74,10 @@ btnConvert.pressed = () => {
 infoBefore.add = btnConvert
 
 infoAfter.hide()
-infoAfter.text = 'Done, you can save your image.'
+infoAfter.text = 'Conversion Done, you can save your image.'
 // reload button
 const btnReload = new StyledElement('btn', 'button')
-btnReload.addHtml = 'Show previous image'
+btnReload.addHtml = 'Revert to original'
 btnReload.pressed = () => {
   myImg = lastImg
   load = true
@@ -141,8 +142,8 @@ sideBarInfo.addGroup('note', 'Don\'t make nsfw and furry arts.')
 const footer = new StyledElement('footer shadow')
 footer.addHtml = `<div class="center">
   <div>Contacts</div>
-  <div>Discord: <span class="link">L' kk#6790</span></div>
-  <div>Github: <a class="link" target="_blank" href="https://github.com/Lkk9">Lkk9</a></div>
+  <div>Discord:&nbsp<span class="link">L' kk#6790</span></div>
+  <div>Github:&nbsp<a class="link" target="_blank" href="https://github.com/Lkk9">Lkk9</a>&nbsp|&nbsp<a class="link" target="_blank" href="https://github.com/Lkk9/pngToMsav">Source Code</div>
   <div class="cop" style="user-select: none;">Copyright (c) 2022 Copyright Holder All Rights Reserved.</div>
 </div>`
 
