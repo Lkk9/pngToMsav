@@ -26,7 +26,7 @@ saveContent.addSaver('saver', 'Download', 'shadow')
 // canvas
 const img = new StyledElement('img', 'img')
 
-// warning alert
+// image size warning
 const warningSize = new StyledElement('warningSize')
 warningSize.text = 'Do not load huge pictures, it may unresponsive while converting'
 
@@ -54,7 +54,6 @@ const infoConverting = new StyledElement('infoContainer') // while converting
 
 infoConverting.hide()
 infoConverting.addHtml = '<span style="padding: 47px 0;">Converting...</span><span style="padding: 23px 0;">Please be patient, the system is converting your image</span>'
-
 
 infoBefore.text = 'Press the button to start converting.'
 // convert button
@@ -143,7 +142,7 @@ const footer = new StyledElement('footer shadow')
 footer.addHtml = `<div class="center">
   <div>Contacts</div>
   <div>Discord:&nbsp<span class="link">L' kk#6790</span></div>
-  <div>Github:&nbsp<a class="link" target="_blank" href="https://github.com/Lkk9">Lkk9</a>&nbsp|&nbsp<a class="link" target="_blank" href="https://github.com/Lkk9/pngToMsav">Source Code</div>
+  <div>Github:&nbsp<a class="link" target="_blank" href="https://github.com/Lkk9">Lkk9</a>&nbsp|&nbsp<a class="link" target="_blank" href="https://github.com/Lkk9/pngToMsav">Source Code</a></div>
   <div class="cop" style="user-select: none;">Copyright (c) 2022 Copyright Holder All Rights Reserved.</div>
 </div>`
 
