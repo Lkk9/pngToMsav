@@ -1,7 +1,7 @@
 class StyledElement {
   constructor (cssClass, elName='div') {
     this.element = document.createElement(elName)
-    this.element.className = cssClass
+    this.element.classList.add(...cssClass.split(' '))
     document.getElementById('wrapper').appendChild(this.element)
   }
 
@@ -91,8 +91,8 @@ class StyledElement {
     }
   }
 
-  addSaver(id) {
-    this.element.innerHTML += `<a class="userBtn" id="${id}">Save</a>`
+  addSaver(id, text, classes) {
+    this.element.innerHTML += `<a class="userBtn ${classes}" id="${id}">${text}</a>`
 
     document.getElementById(id).addEventListener('click', function(e) {
       const downloadLink = document.getElementById(id)
@@ -103,8 +103,8 @@ class StyledElement {
     })
   }
 
-  addLoader(id) {
-    this.element.innerHTML += `<input type="file" name="${id}" id="${id}" accept="image/png" style="display: none;"><label for="${id}" class="userBtn" id="${id}-label">Load</label>`
+  addLoader(id, text, classes) {
+    this.element.innerHTML += `<input type="file" name="${id}" id="${id}" accept="image/png" style="display: none;"><label for="${id}" class="userBtn ${classes}" id="${id}-label">${text}</label>`
     document.getElementById(id).addEventListener('change', function(e) {
       const tgt = e.target || window.event.srcElement
       const files = tgt.files

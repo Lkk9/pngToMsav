@@ -1,13 +1,23 @@
 const cssStyle = document.createElement('style')
 cssStyle.innerHTML = `
 
-.progressStyles {
-  color: ${color.textLight};
-  background-color: ${color.background};
-  border: none;
-  margin-top: 40px;
-  border-radius: 6px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@400;600&display=swap');
+
+  body {
+    background: ${color.background};
+  }
+
+  .shadow {
+    box-shadow: 0px 5px 20px rgba(0,0,0,.25);
+  }
+
+  .progressStyles {
+    color: ${color.textLight};
+    background-color: ${color.background};
+    border: none;
+    margin-top: 40px;
+    border-radius: 6px;
+  }
 
   progress::-moz-progress-bar {
     background: ${color.textLight};
@@ -24,11 +34,6 @@ cssStyle.innerHTML = `
     border-radius: 6px;
   }
 
-  p {
-    display: flex;
-    justify-content: center;
-  }
-
   .slider {
     -webkit-appearance: none;
     background: ${color.background};
@@ -39,6 +44,7 @@ cssStyle.innerHTML = `
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     background: ${color.regular};
+    box-shadow: 0px 5px 20px rgba(0,0,0,.125);
     appearance: none;
     width: 25px;
     height: 25px;
@@ -48,6 +54,7 @@ cssStyle.innerHTML = `
   .slider::-moz-range-thumb {
     -webkit-appearance: none;
     background: ${color.regular};
+    box-shadow: 0px 5px 20px rgba(0,0,0,.125);
     appearance: none;
     width: 25px;
     height: 25px;
@@ -63,7 +70,6 @@ cssStyle.innerHTML = `
     justify-content: center;
     background: ${color.regular};
     align-items: center;
-    overflow-y: hidden;
   }
 
   .head {
@@ -78,7 +84,6 @@ cssStyle.innerHTML = `
     font-size: 2.5em;
     font-weight: 600;
   }
-
 
   .main {
     grid-row: 2/3;
@@ -112,20 +117,21 @@ cssStyle.innerHTML = `
     align-items: center;
     text-align: center;
     padding: 30px 40px;
+    min-width: 420px;
   }
 
   .settings {
     grid-row: 4/5;
     grid-column: 2/5;
-    background: ${color.regular};
     color: ${color.textDark};
     flex-direction: column;
     border-radius: 8px;
+    overflow: hidden;
   }
 
   .options {
-    background: ${color.main};
     width: 100%;
+    background: ${color.main};
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -169,6 +175,7 @@ cssStyle.innerHTML = `
     border: none;
     border-radius: 4px;
     box-shadow: none;
+    transition: 100ms;
   }
   .btn:hover {
     color: ${color.textDark};
@@ -182,7 +189,6 @@ cssStyle.innerHTML = `
     align-items: center;
     width: 100%;
   }
-
 
   .gamma #gammaValue {
     width: 50px;
@@ -211,6 +217,7 @@ cssStyle.innerHTML = `
     border-radius: 8px;
     border: 2px solid ${color.textDark};
     max-width: 100%;
+    max-height: 400px;
     min-width: 200px;
   }
 
@@ -221,14 +228,17 @@ cssStyle.innerHTML = `
     color: rgba(255,0,0,.5);
   }
 
-  .a {
-    color: #6cc644;
+  .link {
+    color: ${color.textLight};
+  }
+  a[class="link"] {
     text-decoration-line: underline;
     text-decoration-style: dashed;
   }
 
   .cop {
     opacity: .5;
+    text-align: center;
   }
 
   .sideBarInfo {
@@ -240,43 +250,53 @@ cssStyle.innerHTML = `
     user-select: text;
   }
 
+  .dataInteraction {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loadContent:before {
+    content: '';
+    position: absolute;
+    width: 14%;
+    height: 100%;
+    background: url("img/arrowUp.png") no-repeat center;
+    background-size: 100%;
+    opacity: .1;
+    z-index: -1;
+  }
+
   .loadContent {
     grid-row: 3/4;
     grid-column: 4/5;
-    background: ${color.regular};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
   }
 
+  .saveContent:before {
+    content: '';
+    position: absolute;
+    width: 14%;
+    height: 100%;
+    background: url("img/arrowDown.png") no-repeat center;
+    background-size: 100%;
+    opacity: .1;
+    z-index: -1;
+  }
   .saveContent {
     grid-row: 3/4;
     grid-column: 2/3;
-    background: ${color.regular};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
   }
 
   .userBtn {
-    background: ${color.regular};
     padding: 20px 20%;
     margin: 20px;
     font-weight: 600;
     font-size: 1.1em;
     cursor: pointer;
     color: ${color.textDark};
+    background: ${color.regular}cc;
     border-radius: 10px;
-  }
-
-  #saver {
-    border: solid 5px ${color.main};
-  }
-
-  #loader-label {
-    border: dashed 5px ${color.main};
   }
 
   .radioGroup {
@@ -394,6 +414,9 @@ cssStyle.innerHTML = `
 
     #wrapper > * {
       border-radius: 0;
+    }
+
+    .shadow {
       box-shadow: none;
     }
 
