@@ -297,6 +297,10 @@ cssStyle.innerHTML = `
     color: ${color.textDark};
     background: ${color.regular}cc;
     border-radius: 10px;
+    transition: 100ms;
+  }
+  .userBtn:hover {
+    background: ${color.regular};
   }
 
   .radioGroup {
