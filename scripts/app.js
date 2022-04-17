@@ -17,11 +17,30 @@ const imgSize = new StyledElement('imgSize')
 
 // load button
 const loadContent = new StyledElement('loadContent dataInteraction')
-loadContent.addLoader('loader', 'Upload', 'shadow')
+loadContent.addLoader({
+  id: 'loader',
+  text: 'Upload',
+  classes: 'shadow'
+})
+
+// drag n drop
+const dragNDropArea = new StyledElement('dragNDropArea')
+dragNDropArea.addDragNDrop({
+  id: 'dragNDropArea',
+  text: 'Drag and drop image here',
+  classes: 'dragNDrop',
+  hidingElement: document.getElementById('loader-label')
+})
+
+loadContent.add = dragNDropArea
 
 // save button
 const saveContent = new StyledElement('saveContent dataInteraction')
-saveContent.addSaver('saver', 'Download', 'shadow')
+saveContent.addSaver({
+  id: 'saver',
+  text: 'Download',
+  classes: 'shadow'
+})
 
 // canvas
 const img = new StyledElement('img', 'img')
@@ -64,11 +83,11 @@ btnConvert.pressed = () => {
   infoConverting.show('flex')
   const top = headContainer.element.getBoundingClientRect().bottom+2
   if (top < 0) window.scrollTo({ top: top+window.scrollY, behavior: 'smooth' })
-  setTimeout(() => makeImg(),0)
+  setTimeout(() => makeImg())
   setTimeout(() => {
     infoConverting.hide()
     infoAfter.show('flex')
-  },0)
+  })
 }
 infoBefore.add = btnConvert
 
@@ -78,8 +97,11 @@ infoAfter.text = 'Done, you can save your image.'
 const btnReload = new StyledElement('btn', 'button')
 btnReload.addHtml = 'Show previous image'
 btnReload.pressed = () => {
+  showConvertButton()
   myImg = lastImg
   load = true
+}
+function showConvertButton() {
   infoAfter.hide()
   infoBefore.show('flex')
 }
@@ -133,7 +155,7 @@ settings.add = optionsCustom
 // side bar
 const sideBarInfo = new StyledElement('sideBarInfo shadow')
 
-sideBarInfo.addGroup('help', 'Load your image, press convert button and wait for process. You can apply some options below.')
+sideBarInfo.addGroup('help', `Load your image${window.mobileCheck() ? '' : ' (drag and drop is available)'}, press convert button and wait for process. You can apply some options below.`)
 sideBarInfo.addGroup('import in game', 'To make an image a mindustry map go to <div class="command">1. editor</div><div class="command">2. new map</div><div class="command">3. menu (in map editor)</div><div class="command">4. import</div><div class="command">5. import image file</div><div class="command">6. and open converted image</div>')
 sideBarInfo.addGroup('note', 'Don\'t make nsfw and furry arts.')
 
@@ -159,6 +181,8 @@ setInterval(() => {
     imgSize.element.innerHTML = `${myImg?.width}X${myImg?.height} px`
     img.show()
   }
+
+
 
   if (myImg.width*myImg.height > 500**2)
     warningSize.show()

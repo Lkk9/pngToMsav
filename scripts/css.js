@@ -1,8 +1,6 @@
 const cssStyle = document.createElement('style')
 cssStyle.innerHTML = `
 
-@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@400;600&display=swap');
-
   body {
     background: ${color.background};
   }
@@ -268,9 +266,34 @@ cssStyle.innerHTML = `
     z-index: -1;
   }
 
-  .loadContent {
+  .loadContent,
+  .dragNDropArea {
     grid-row: 3/4;
     grid-column: 4/5;
+  }
+
+  .dragNDropArea {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dragNDrop {
+    border: 4px dashed ${color.main};
+    outline-offset: 10px;
+    border-radius: 10px;
+    color: ${color.textDark};
+    background: ${color.regular}cc;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dragNDropHoverd {
+    background: ${color.regular};
   }
 
   .saveContent:before {
@@ -370,7 +393,7 @@ cssStyle.innerHTML = `
   @media only screen and (max-width: 1300px) {
     #wrapper {
       grid-template-rows: 80px auto auto auto auto 1fr auto 0;
-      grid-template-columns: 0 auto auto 25vw;
+      grid-template-columns: 0 1fr 1fr 25vw;
     }
 
     .headContainer {
@@ -412,7 +435,7 @@ cssStyle.innerHTML = `
   @media only screen and (max-width: 1000px) {
     #wrapper {
       grid-template-rows: 80px auto auto auto auto auto auto;
-      grid-template-columns: auto auto;
+      grid-template-columns: 1fr 1fr;
       grid-gap: 0;
     }
 
