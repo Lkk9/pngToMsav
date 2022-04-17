@@ -145,21 +145,15 @@ class StyledElement {
       this.element.style.display = 'none'
       hidingElement.style.display = 'block'
     })
-    document.addEventListener('dragleave', (e) => {
-      e.stopPropagation()
-      e.preventDefault()
-      this.element.style.display = 'none'
-      hidingElement.style.display = 'block'
-    })
 
-    area.addEventListener('dragleave', () => {
-      area.classList.remove('dragNDropHoverd')
-    })
-    area.addEventListener('dragenter', () => {
+    area.addEventListener('dragenter', (e) => {
+      e.preventDefault()
       area.classList.add('dragNDropHoverd')
     })
-
-
+    area.addEventListener('dragleave', (e) => {
+      e.preventDefault()
+      area.classList.remove('dragNDropHoverd')
+    })
 
     area.addEventListener('drop', (e) => {
       e.stopPropagation()
