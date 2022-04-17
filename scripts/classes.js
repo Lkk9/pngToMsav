@@ -147,10 +147,12 @@ class StyledElement {
     })
 
     area.addEventListener('dragenter', (e) => {
+      e.stopPropagation()
       e.preventDefault()
       area.classList.add('dragNDropHoverd')
     })
     area.addEventListener('dragleave', (e) => {
+      e.stopPropagation()
       e.preventDefault()
       area.classList.remove('dragNDropHoverd')
     })
