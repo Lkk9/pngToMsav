@@ -145,6 +145,14 @@ class StyledElement {
       this.element.style.display = 'none'
       hidingElement.style.display = 'block'
     })
+    if (!(navigator.userAgent.match(/chrome|chromium|crios/i) || navigator.userAgent.match(/safari/i))) {
+      document.addEventListener('dragleave', (e) => {
+        e.stopPropagation()
+        e.preventDefault()
+        this.element.style.display = 'none'
+        hidingElement.style.display = 'block'
+      })
+    }
 
     area.addEventListener('dragenter', (e) => {
       e.stopPropagation()
@@ -164,6 +172,7 @@ class StyledElement {
       setTimeout(() => {
         this.element.style.display = 'none'
         hidingElement.style.display = 'block'
+        area.classList.remove('dragNDropHoverd')
       }, 400)
 
       // thanks WilloIzCitron for this code (from WilloIzCitron/imgToMsav)

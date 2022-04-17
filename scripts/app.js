@@ -24,15 +24,17 @@ loadContent.addLoader({
 })
 
 // drag n drop
-const dragNDropArea = new StyledElement('dragNDropArea')
-dragNDropArea.addDragNDrop({
-  id: 'dragNDropArea',
-  text: 'Drag and drop image here',
-  classes: 'dragNDrop',
-  hidingElement: document.getElementById('loader-label')
-})
+if (!window.mobileCheck()) {
+  const dragNDropArea = new StyledElement('dragNDropArea')
+  dragNDropArea.addDragNDrop({
+    id: 'dragNDropArea',
+    text: 'Drag and drop image here',
+    classes: 'dragNDrop',
+    hidingElement: document.getElementById('loader-label')
+  })
 
-loadContent.add = dragNDropArea
+  loadContent.add = dragNDropArea
+}
 
 // save button
 const saveContent = new StyledElement('saveContent dataInteraction')

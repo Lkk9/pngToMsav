@@ -279,11 +279,10 @@ cssStyle.innerHTML = `
   }
 
   .dragNDrop {
-    border: 4px dashed ${color.main};
-    outline-offset: 10px;
-    border-radius: 10px;
+    border: 8px dashed rgba(0,0,0,.125);
+    border-radius: 20px;
     color: ${color.textDark};
-    background: ${color.regular}cc;
+    background: transparent;
     font-size: 1.1em;
     font-weight: 600;
     width: 100%;
@@ -291,9 +290,10 @@ cssStyle.innerHTML = `
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
   .dragNDropHoverd {
-    background: ${color.regular};
+    background: ${color.regular}88;
   }
 
   .saveContent:before {
