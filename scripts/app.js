@@ -194,7 +194,8 @@ setInterval(() => {
   let currentOption = +optionsRadios.currentRadioValue
   optionsCustom.hide()
   if (currentOption === 0) {
-    allColors = Object.values(allObjects).splice(14, 42)
+    allColors = Object.values(allObjects).splice(24)
+    allColors.length -= 6
   } else if (currentOption === 1) {
     allColors = Object.values(allObjects)
   } else if (currentOption === -1) {
